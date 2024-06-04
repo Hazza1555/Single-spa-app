@@ -15,3 +15,8 @@ export const register = (key: string) => {
   registeredSubjects.push({ key: key, subject: subject })
   return subject;
 }
+
+
+export const CustomButton = ({ message, appToSendTo, buttonText }) => {
+  return <button onClick={() => sendMessage(message, appToSendTo)}>{buttonText}</button>
+}

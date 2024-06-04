@@ -1,9 +1,14 @@
 import React from 'react'
-import { sendMessage, register } from "@verint/utility";
+import { sendMessage, register, CustomButton } from "@verint/utility";
 import { useEffect, useState } from "react";
 
+interface MessageObject {
+  id: number,
+  text: string
+}
+
 export const Application = () => {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<MessageObject[]>([])
 
   let nextId = 0;
 
@@ -19,7 +24,7 @@ export const Application = () => {
   return (
     <div>
       <h1>Application 2</h1>
-      <button onClick={() => sendMessage(`Message Sent To App 1: ${new Date(Date.now()).toUTCString()}`, "Application")}>Send message to app 1</button>
+      <CustomButton message={`Message Sent To App 1: ${new Date(Date.now()).toUTCString()}`} appToSendTo={"Application"} buttonText={"Send Message to Application 1"} />
       <p>Message from App 1</p>
       <ul>
         {messages.map(message => (
