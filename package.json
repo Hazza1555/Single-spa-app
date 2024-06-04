@@ -1,0 +1,19 @@
+{
+  "name": "coding-project",
+  "version": "1.0.0",
+  "description": "A demo of using single spa ",
+  "main": "index.js",
+  "workspaces": [
+    "components/*"
+  ],
+  "scripts": {
+    "test": "test",
+    "root": "start npm start -w components/root --parallel",
+    "app1": "start npm start -w components/application1 --parallel",
+    "app2": "start npm start -w components/application2 --parallel",
+    "util": "start npm start -w components/utility --parallel",
+    "start": "npm run root && npm run app1 && npm run app2 && npm run util"
+  },
+  "author": "",
+  "license": "ISC"
+}
